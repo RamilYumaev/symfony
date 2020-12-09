@@ -1,22 +1,27 @@
 <?php
-namespace  App\Controller;
 
+namespace App\Controller;
+
+use App\GreetingGenerator;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Psr\Log\LoggerInterface;
 
-class DefaultController extends AbstractController {
+class DefaultController extends AbstractController
+{
     /**
      * @param $name
      * @return Response
      * @route("hello/{name}")
      */
-    public function index($name, LoggerInterface $logger){
+    public function index($name)
+    {
 
-        $logger->info("Логирование пример");
-        return $this->json( [
-            'name'=> $name,
+        $r = 'r';
+        return $this->render('default/index.html.twig', [
+            'name' => $name,
+            'r' => $r,
         ]);
     }
 
@@ -24,8 +29,8 @@ class DefaultController extends AbstractController {
      * @return Response
      * @route("simple")
      */
-
-    public function sipmle(){
+    public function sipmle()
+    {
         return new Response("Просто! Легко! Быстро!");
     }
 }

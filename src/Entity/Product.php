@@ -1,12 +1,16 @@
 <?php
-use \ApiPlatform\Core\Annotation\ApiResource;
+
+namespace App\Entity;
+
+use ApiPlatform\Core\Annotation\ApiResource;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity()
  * @ApiResource()
  */
-class Product{
+class Product
+{
 
     /**
      * @ORM\Id
@@ -14,10 +18,12 @@ class Product{
      * @ORM\Column(type="integer")
      */
     private $id;
+
     /**
      * @ORM\Column(type="string")
      */
     private $name;
+
     /**
      * @ORM\Column(type="string")
      */
